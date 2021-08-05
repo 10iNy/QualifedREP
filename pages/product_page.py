@@ -1,8 +1,7 @@
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
-
+from .basket_page import BasketPage
 from .locators import ProductPageLocators
-
+from .locators import BasePageLocators
 from selenium.common.exceptions import NoSuchElementException
 
 class ProductPage(BasePage):
@@ -26,3 +25,9 @@ class ProductPage(BasePage):
         assert book_name_in_message == book_name, f"{book_name_in_message}\n{book_name}\n{self.browser.current_url}"
         assert book_price == book_price_in_basket, f"{book_price} not equals {book_price_in_basket}"
         
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message is presented, but should not be."
+    def should_disappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message is not disappeared, but it should have."

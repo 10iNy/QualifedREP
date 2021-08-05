@@ -9,6 +9,6 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.open()
     page.click_to_basket_button()
     page.solve_quiz_and_get_code()
-    time.sleep(2)
+    #time.sleep(2)
     page.check_correctly_buy()
     
