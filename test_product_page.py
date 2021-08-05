@@ -47,7 +47,6 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.click_to_basket_button()
         page.solve_quiz_and_get_code()
-        #time.sleep(2)
         page.check_correctly_buy()
     def test_user_cant_see_success_message(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
